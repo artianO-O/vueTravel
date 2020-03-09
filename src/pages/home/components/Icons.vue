@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper class="wrapper">
+    <swiper class="wrapper" :options="swiperOption">
       <!-- slides -->
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
@@ -17,59 +17,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data() {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门景点',
+      swiperOption: {
+        autoPlay: false
       }
-      , {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        desc: '广州必游',
-      }
-      , {
-        id: '0003',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/184e261814a5d07a5d3d08cd29cf590d.png',
-        desc: '长隆度假区',
-      }
-      , {
-        id: '0004',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png',
-        desc: '广州塔',
-      }
-      , {
-        id: '0005',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
-        desc: '珠江夜游',
-      }
-      , {
-        id: '0006',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-        desc: '泡温泉',
-      }
-      , {
-        id: '0007',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/c1/6f15f887179fa002.png',
-        desc: '岭南印象园',
-      }
-      , {
-        id: '0008',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/fa/2548667cb6e902.png',
-        desc: '动植物园',
-      }
-      , {
-        id: '0009',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '一日游玩',
-      }]
     }
   },
   computed: {
     pages() {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]){
           pages[page] = []

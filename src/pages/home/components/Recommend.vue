@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" alt="">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,29 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data() {
-    return {
-      recommendList: [
-        {
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1508/d9/12d379fbfee474d481da6e950b740ff3.water.jpg_200x200_4a3f867b.jpg',
-        title: '增城金叶子温泉',
-        desc: '沉浸在温泉里，想象自己是一只自由自在的鱼，游曳在温暖的水域。'
-        },
-        {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1508/d9/12d379fbfee474d481da6e950b740ff3.water.jpg_200x200_4a3f867b.jpg',
-        title: '增城金叶子温泉',
-        desc: '沉浸在温泉里，想象自己是一只自由自在的鱼，游曳在温暖的水域。'
-        },
-        {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1508/d9/12d379fbfee474d481da6e950b740ff3.water.jpg_200x200_4a3f867b.jpg',
-        title: '增城金叶子温泉',
-        desc: '沉浸在温泉里，想象自己是一只自由自在的鱼，游曳在温暖的水域。'
-        },
-    ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
