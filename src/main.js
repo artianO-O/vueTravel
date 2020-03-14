@@ -3,7 +3,8 @@
 import Vue from 'vue';
 import fastClick from 'fastclick';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-import store from './store'
+import 'babel-polyfill';
+import store from './store';
 import 'styles/reset.css';
 import 'styles/border.css';
 import 'styles/iconfont.css';
